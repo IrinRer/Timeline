@@ -1,0 +1,23 @@
+@import 'styles/color.scss';
+
+.btn_prev {
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  border: 1px solid $grey;
+  border-radius: 50%;
+  box-shadow: 0px 0px 15px rgba(56, 119, 238, 0.1);
+
+  &::after {
+    content: '';
+    width: 9px;
+    height: 9px;
+    position: relative;
+    top: 9px;
+    left: 20px;
+    display: inline-block;
+    border-top: 2px solid $grey;
+    border-right: 2px solid $grey;
+    transform: rotate(225deg);
+  }
+}
