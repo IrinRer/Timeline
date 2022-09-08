@@ -1,6 +1,11 @@
 @import 'styles/color.scss';
 
-.swiper {
+.wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.swiper_two {
   height: 100px;
   :global(.swiper-button-next) {
     width: 40px;

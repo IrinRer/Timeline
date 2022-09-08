@@ -1,13 +1,9 @@
-import SliderMax from 'component/SliderMax';
-import SliderMin from 'component/SliderMin';
+import Sliders from 'component/Sliders';
 import React from 'react';
 
 const App = () => {
   return (
-    <>
-      <SliderMax />
-      <SliderMin />
-    </>
+  <Sliders/>
   );
 };
 
