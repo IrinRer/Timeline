@@ -1,0 +1,13 @@
+@import 'styles/color.scss';
+
+.wrapper_line_horizontal {
+  padding: 100px 160px 100px 200px;
+  align-self: center;
+  grid-area: 1 / 1;
+
+  .line_horizontal {
+    height: 1px;
+    background-color: $line;
+    opacity: 0.1;
+  }
+}

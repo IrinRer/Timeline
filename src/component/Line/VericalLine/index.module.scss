@@ -1,0 +1,14 @@
+@import 'styles/color.scss';
+
+.wrapper_line_vertical {
+  display: flex;
+  justify-content: space-between;
+  grid-area: 1 / 1;
+  padding: 0px 160px 0px 200px;
+  .line_vertical {
+    width: 1px;
+    height: 100vh;
+    background-color: $line;
+    opacity: 0.1;
+  }
+}
