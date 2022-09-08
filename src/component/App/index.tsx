@@ -3,8 +3,12 @@ import SliderMin from 'component/SliderMin';
 import React from 'react';
 
 const App = () => {
-  // return <SliderMin/>
-  return <SliderMax/>
-}
+  return (
+    <>
+      <SliderMax />
+      <SliderMin />
+    </>
+  );
+};
 
 export default App;

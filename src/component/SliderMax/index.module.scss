@@ -1,7 +1,14 @@
 @import 'styles/color.scss';
 
-.wrapper_btn {
+// :global(.swiper-pagination-current),
+// :global(.swiper-pagination-total) {
+//   color: $font-color;
+//   &::before {
+//     content: '0';
+//   }
+// }
+
+.wrapper {
   display: flex;
-  justify-content: space-between;
-  width: 120px;
+  flex-direction: column;
 }

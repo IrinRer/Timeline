@@ -7,7 +7,7 @@ const SlidePrevButton = () => {
 
   return (
     <button
-      className={styles.btn_next}
+      className={styles.btn_prev}
       type="button"
       onClick={() => swiper.slidePrev()}
     />
