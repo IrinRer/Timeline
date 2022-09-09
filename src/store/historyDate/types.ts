@@ -31,7 +31,7 @@ export interface IHistoryDateFourthPeriod {
 }
 
 export interface IHitoryDateSlice {
-  historyDate: Array<IHistoryDateItem>;
+  historyDate: IHistoryDateItem | null;
   loading: boolean;
   error: AxiosError | null;
 }

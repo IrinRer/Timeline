@@ -4,7 +4,7 @@ import { HISTORY_DATE_SLICE_ALIAS, IHitoryDateSlice } from './types';
 import { fetchHistoryDateAction } from './thunk';
 
 const initialState: IHitoryDateSlice = {
-  historyDate: [],
+  historyDate: null,
   loading: false,
   error: null
 };
@@ -20,7 +20,7 @@ export const dateHistorySlice = createSlice({
     },
     [fetchHistoryDateAction.fulfilled.type]: (
       state,
-      { payload }: PayloadAction<Array<any>>,
+      { payload }: PayloadAction<any>,
     ) => {
       state.historyDate = payload;
       state.loading = false;
@@ -29,7 +29,7 @@ export const dateHistorySlice = createSlice({
       state,
       { payload }: PayloadAction<AxiosError>,
     ) => {
-     state.historyDate = [];
+     state.historyDate = null;
      state.loading = false;
      state.error = payload
     },

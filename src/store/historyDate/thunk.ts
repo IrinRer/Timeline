@@ -8,7 +8,6 @@ export const fetchHistoryDateAction = createAsyncThunk(
   async (_, { rejectWithValue }) => {
     try {
       const response: AxiosResponse = await api().get('/data');
-      console.log(response)
       return response.data;
     } catch (error) {
       return rejectWithValue(error.message);
