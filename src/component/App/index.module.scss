@@ -7,9 +7,23 @@
 .wrapper_main {
   display: grid;
   grid-template-columns: repeat(2, 100vw);
+  height: 100%;
 }
 
 .wrapper {
-  padding: 100px 160px 100px 200px;
+  padding: 30px 160px 100px 160px;
   grid-area: 1 / 1;
+}
+
+.wrapper_cicle {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  overflow: auto;
 }

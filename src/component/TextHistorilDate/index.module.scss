@@ -1,0 +1,20 @@
+@import 'styles/color.scss';
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  gap: 70px;
+  h1 {
+    font-weight: 700;
+    font-size: calc(24px + (16 + 16 * 0.7) * ((100vw - 320px) / 1280));
+    line-height: 120%;
+    color: $font-color;
+    width: 353px;
+  }
+
+  .line {
+    width: 5px;
+    height: 120px;
+    background: linear-gradient(#3877EE, #EF5DA8);
+  }
+}

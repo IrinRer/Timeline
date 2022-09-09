@@ -24,7 +24,7 @@ const Sliders = () => {
   };
 
   return (
-    <main>
+    <main className={styles.wrapper_main}>
       <Swiper
         modules={[Navigation, Pagination, Controller]}
         spaceBetween={50}
