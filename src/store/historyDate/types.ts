@@ -2,32 +2,9 @@ import { AxiosError } from 'axios';
 
 export const HISTORY_DATE_SLICE_ALIAS = 'historyDate';
 
-export interface IHistoryDateFirstPeriod {
-  2007: string;
-  2008: string;
-  2009: string;
-  2010: string;
-}
-
-export interface IHistoryDateSecondPeriod {
-  2011: string;
-  2012: string;
-  2013: string;
-  2014: string;
-}
-
-export interface IHistoryDateThirdPeriod {
-  2015: string;
-  2016: string;
-  2017: string;
-  2018: string;
-}
-
-export interface IHistoryDateFourthPeriod {
-  2019: string;
-  2020: string;
-  2021: string;
-  2022: string;
+export interface IHistoryDatePeriod {
+  time: number;
+  text: string;
 }
 
 export interface IHitoryDateSlice {
@@ -38,27 +15,27 @@ export interface IHitoryDateSlice {
 
 export interface IHistoryDateItem {
   first: {
-    science: Array<IHistoryDateFirstPeriod>;
-    movie: Array<IHistoryDateFirstPeriod>;
-    literature: Array<IHistoryDateFirstPeriod>;
-    music: Array<IHistoryDateFirstPeriod>;
+    science: Array<IHistoryDatePeriod>;
+    movie: Array<IHistoryDatePeriod>;
+    literature: Array<IHistoryDatePeriod>;
+    music: Array<IHistoryDatePeriod>;
   };
   second: {
-    science: Array<IHistoryDateSecondPeriod>;
-    movie: Array<IHistoryDateSecondPeriod>;
-    literature: Array<IHistoryDateSecondPeriod>;
-    music: Array<IHistoryDateSecondPeriod>;
+    science: Array<IHistoryDatePeriod>;
+    movie: Array<IHistoryDatePeriod>;
+    literature: Array<IHistoryDatePeriod>;
+    music: Array<IHistoryDatePeriod>;
   };
   third: {
-    science: Array<IHistoryDateThirdPeriod>;
-    movie: Array<IHistoryDateThirdPeriod>;
-    literature: Array<IHistoryDateThirdPeriod>;
-    music: Array<IHistoryDateThirdPeriod>;
+    science: Array<IHistoryDatePeriod>;
+    movie: Array<IHistoryDatePeriod>;
+    literature: Array<IHistoryDatePeriod>;
+    music: Array<IHistoryDatePeriod>;
   };
   fourth: {
-    science: Array<IHistoryDateFourthPeriod>;
-    movie: Array<IHistoryDateFourthPeriod>;
-    literature: Array<IHistoryDateFourthPeriod>;
-    music: Array<IHistoryDateFourthPeriod>;
+    science: Array<IHistoryDatePeriod>;
+    movie: Array<IHistoryDatePeriod>;
+    literature: Array<IHistoryDatePeriod>;
+    music: Array<IHistoryDatePeriod>;
   };
 }

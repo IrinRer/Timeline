@@ -14,3 +14,5 @@ const SlidersItemFirstPeriod = () => {
     </>
   );
 };
+
+export default SlidersItemFirstPeriod;
