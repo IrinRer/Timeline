@@ -1,4 +1,5 @@
 @import 'styles/color.scss';
+@import 'styles/mixins.scss';
 
 * {
   box-sizing: border-box;
@@ -13,6 +14,9 @@
 .wrapper {
   padding: 30px 160px 100px 160px;
   grid-area: 1 / 1;
+  @include media-breakpoint-only(xs) {
+    padding: 30px 20px 20px 20px;
+  }
 }
 
 .wrapper_cicle {
@@ -26,4 +30,7 @@
   align-content: center;
   justify-content: center;
   overflow: auto;
+  @include media-breakpoint-only(xs) {
+   display: none;
+  }
 }

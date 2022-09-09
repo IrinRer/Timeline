@@ -1,15 +1,15 @@
 import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Controller } from 'swiper';
-import { addZero } from 'helpers/addZero';
 import 'swiper/css';
+import { addZero } from 'helpers/addZero';
+import Button from 'component/Sliders/Button';
 import 'swiper/scss/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/effect-fade';
 import styles from './index.module.scss';
-import Button from './Button';
 
-const Sliders = () => {
+const SlidersMobile = () => {
   const swiper1Ref = React.useRef<any>(null);
   const swiper2Ref = React.useRef<any>(null);
 
@@ -28,10 +28,11 @@ const Sliders = () => {
         onSwiper={(swiper) => {
           swiper1Ref.current = swiper;
         }}
+        slidesPerView={1}
         pagination={{
           clickable: true,
           type: 'fraction',
-          el: '.my_custom_pagination_div',
+          el: '.my_custom_pagination_div_fragment',
           formatFractionTotal: (index) => {
             return addZero(index);
           },
@@ -39,50 +40,40 @@ const Sliders = () => {
             return addZero(index);
           },
         }}
-        slidesPerView={1}
         className={styles.swiper_one}
       >
         <SwiperSlide>Slide 1</SwiperSlide>
         <SwiperSlide>Slide 2</SwiperSlide>
         <SwiperSlide>Slide 3</SwiperSlide>
         <SwiperSlide>Slide 4</SwiperSlide>
-        <div className={styles.wrapper}>
-          <div className='my_custom_pagination_div'/>
+        <div className={styles.wrapper_btn}>
+          <div className='my_custom_pagination_div_fragment'/>
           <Button />
         </div>
       </Swiper>
 
       <Swiper
-        modules={[Navigation, Controller, Pagination]}
+        modules={[Controller, Pagination]}
         spaceBetween={50}
         onSwiper={(swiper) => {
           swiper2Ref.current = swiper;
         }}
-        slidesPerView={4}
-        navigation
+        slidesPerView={2}
         className={styles.swiper_two}
-        breakpoints={{
-          320: {
-            slidesPerView: 2,
-            pagination: {
-              clickable: true,
-            },
-          },
-          480: {
-            slidesPerView: 1,
-          },
-          992: {
-            slidesPerView: 3,
-          },
+        pagination={{
+          clickable: true,
+          type: 'bullets',
+          el: `.${styles.my_custom_pagination_div}`,
         }}
       >
         <SwiperSlide>Slide 1</SwiperSlide>
         <SwiperSlide>Slide 2</SwiperSlide>
         <SwiperSlide>Slide 3</SwiperSlide>
         <SwiperSlide>Slide 4</SwiperSlide>
+        <div className={styles.my_custom_pagination_div} />
       </Swiper>
     </main>
   );
 };
 
-export default Sliders;
+export default SlidersMobile;

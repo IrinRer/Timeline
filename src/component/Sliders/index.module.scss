@@ -1,8 +1,18 @@
 @import 'styles/color.scss';
+@import 'styles/mixins.scss';
 
 .wrapper {
   display: flex;
+  height: 40vh;
   flex-direction: column;
+  justify-content: flex-end;
+}
+
+.swiper_one {
+  min-width: 0;
+  :global(.swiper-wrapper) {
+    text-align: center;
+  }
 }
 
 .swiper_two {
@@ -13,6 +23,10 @@
   bottom: 0;
   padding: 20px;
   padding-left: 80px;
+  @include media-breakpoint-only(xs) {
+    position: static;
+  }
+
   :global(.swiper-button-next) {
     width: 40px;
     height: 40px;

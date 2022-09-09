@@ -1,11 +1,16 @@
 @import 'styles/color.scss';
+@import 'styles/mixins.scss';
 
 .wrapper_line_horizontal {
   padding: 100px 160px 100px 160px;
+  
   align-self: center;
   grid-area: 1 / 1;
+  @include media-breakpoint-only(xs) {
+    width: 100%;
+    padding: 0px 20px 0px 20px;
+  }
   
-
   .line_horizontal {
     height: 1px;
     background-color: $line;

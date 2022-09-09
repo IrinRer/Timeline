@@ -1,4 +1,5 @@
 @import 'styles/color.scss';
+@import 'styles/mixins.scss';
 
 .btn_prev {
   width: 50px;
@@ -7,6 +8,10 @@
   border: 1px solid $grey;
   border-radius: 50%;
   box-shadow: 0px 0px 15px rgba(56, 119, 238, 0.1);
+  @include media-breakpoint-only(xs) {
+    width: 25px;
+    height: 25px;
+  }
 
   &::after {
     content: '';
@@ -19,5 +24,10 @@
     border-top: 2px solid $grey;
     border-right: 2px solid $grey;
     transform: rotate(225deg);
+
+    @include media-breakpoint-only(xs) {
+      width: 5px;
+      height: 5px;
+    }
   }
 }

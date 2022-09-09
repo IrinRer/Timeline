@@ -1,0 +1,38 @@
+@import 'styles/color.scss';
+@import 'styles/mixins.scss';
+
+.wrapper_btn {
+  position: fixed;
+  bottom: 0;
+}
+
+.wrapper_main {
+  width: 100vw;
+  height: 70vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.swiper_one {
+  min-width: 0;
+  width: 100%;
+  :global(.swiper-wrapper) {
+    text-align: center;
+  }
+}
+
+.swiper_two {
+  min-width: 0;
+  width: 100%;
+
+  .my_custom_pagination_div {
+    position: fixed;
+    left: 200px;
+    bottom: 30px;
+  }
+}
+
+:global(.swiper-pagination-bullet-active) {
+  background: $line;
+}

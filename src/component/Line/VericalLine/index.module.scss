@@ -1,4 +1,5 @@
 @import 'styles/color.scss';
+@import 'styles/mixins.scss';
 
 .wrapper_line_vertical {
   display: flex;
@@ -6,6 +7,9 @@
   grid-area: 1 / 1;
   height: 100%;
   padding: 0px 160px 0px 160px;
+  @include media-breakpoint-only(xs) {
+    display: none;
+  }
   
   .line_vertical {
     width: 1px;

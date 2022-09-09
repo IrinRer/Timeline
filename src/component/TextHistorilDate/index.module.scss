@@ -1,4 +1,5 @@
 @import 'styles/color.scss';
+@import 'styles/mixins.scss';
 
 .wrapper {
   display: flex;
@@ -10,11 +11,20 @@
     line-height: 120%;
     color: $font-color;
     width: 353px;
+    @include media-breakpoint-only(xs) {
+      font-weight: 700;
+      font-size: 20px;
+      line-height: 120%;
+      width: 123px;
+    }
   }
 
   .line {
     width: 5px;
     height: 120px;
-    background: linear-gradient(#3877EE, #EF5DA8);
+    background: linear-gradient(#3877ee, #ef5da8);
+    @include media-breakpoint-only(xs) {
+      display: none;
+    }
   }
 }

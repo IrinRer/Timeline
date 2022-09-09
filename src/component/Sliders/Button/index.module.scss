@@ -1,4 +1,5 @@
 @import 'styles/color.scss';
+@import 'styles/mixins.scss';
 
 .wrapper_btn {
   display: flex;
@@ -8,4 +9,9 @@
   font-weight: 400;
   font-size: 14px;
   line-height: 18px;
+
+  @include media-breakpoint-only(xs) {
+    width: 58.33px;
+    height: 49.67px;
+  }
 }

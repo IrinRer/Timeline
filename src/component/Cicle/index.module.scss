@@ -1,6 +1,10 @@
 @import 'styles/color.scss';
+@import 'styles/mixins.scss';
 
 .wrapper {
+  @include media-breakpoint-only(xs) {
+    display: none;
+  }
   .cicle {
     width: 400px;
     height: 400px;
