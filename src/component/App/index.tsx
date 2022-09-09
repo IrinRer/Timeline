@@ -6,10 +6,8 @@ import SlidersMobile from 'component/SlidersMobile';
 import TextHistoricalDate from 'component/TextHistorilDate';
 import { MOBILE_SIZE } from 'constants/common';
 import { useAppDispatch } from 'customHooks/redux/useAppDispatch';
-import { useAppSelector } from 'customHooks/redux/useAppSelector';
 import { useWindowSize } from 'customHooks/useWindowSize';
 import React, {useEffect} from 'react';
-import { getDateHistory } from 'store/historyDate/selectors';
 import { fetchHistoryDateAction } from 'store/historyDate/thunk';
 import styles from './index.module.scss';
 
