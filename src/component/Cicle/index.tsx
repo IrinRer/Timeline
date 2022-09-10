@@ -1,3 +1,4 @@
+import { BLUE_BLACK } from 'constants/common';
 import gsap from 'gsap';
 import { TextPlugin } from 'gsap/TextPlugin';
 import React, { useRef, useEffect } from 'react';
@@ -7,12 +8,12 @@ gsap.registerPlugin(TextPlugin);
 
 const Cicle = () => {
   const boxRef = useRef<any>();
-  
+
   const onEnter = ({ currentTarget }) => {
     gsap.to(currentTarget, {
-      scale: 3,
+      scale: 2,
       background: 'white',
-      border: '0.1px solid black',
+      border: `0.1px solid ${BLUE_BLACK}`,
       fontSize: '20px',
       ease: 'none',
     });
@@ -25,7 +26,7 @@ const Cicle = () => {
   const onLeave = ({ currentTarget }) => {
     gsap.to(currentTarget, {
       scale: 1,
-      background: 'black',
+      background: BLUE_BLACK,
       border: 'none',
       x: 0,
     });
@@ -39,33 +40,25 @@ const Cicle = () => {
           onMouseEnter={onEnter}
           onMouseLeave={onLeave}
           data-section="science"
-        >
-          <span className={styles.span}>Наука</span>
-        </div>
+        />
         <div
           className={styles.dot_music}
           onMouseEnter={onEnter}
           onMouseLeave={onLeave}
           data-section="music"
-        >
-          <span className={styles.span}>Музыка</span>
-        </div>
+        />
         <div
           className={styles.dot_movie}
           onMouseEnter={onEnter}
           onMouseLeave={onLeave}
           data-section="movie"
-        >
-          <span className={styles.span}>Кино</span>
-        </div>
+        />
         <div
           className={styles.dot_literature}
           onMouseEnter={onEnter}
           onMouseLeave={onLeave}
           data-section="literature"
-        >
-          <span className={styles.span}>Литература</span>
-        </div>
+        />
       </div>
     </div>
   );

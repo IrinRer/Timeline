@@ -29,7 +29,7 @@ const App = () => {
         </div>
         {windowSize.width > MOBILE_SIZE ? <Sliders /> : <SlidersMobile />}
       </div>
-      <HorizontalLine />
+      {/* <HorizontalLine /> */}
     </div>
   );
 };

@@ -27,11 +27,9 @@
   left: 0;
   display: flex;
   align-items: center;
-  align-content: center;
   justify-content: center;
-  overflow: auto;
-  z-index: 5;
   @include media-breakpoint-only(xs) {
    display: none;
   }
+  z-index: 5;
 }

@@ -7,9 +7,9 @@
   align-items: flex-end;
 }
 
-// .wrapper {
-
-// }
+.wrapper {
+  width: 100px;
+}
 
 .swiper_one {
   min-width: 0;
@@ -80,12 +80,22 @@
   overflow-y: hidden;
 }
 
-.p_into_swiper {
-  margin-bottom: 35vh;
+.p_into_swiper_start,
+.p_into_swiper_end {
+  font-weight: 700;
+  font-size: 10vw;
+  width: 100%;
+  margin-bottom: 200px;
+}
+
+.p_into_swiper_start {
+  color: $iris;
+}
+
+.p_into_swiper_end {
+  color: $pink;
 }
 
 .pagination {
-  border: 1px solid red;
+  text-align: center;
 }
-
-

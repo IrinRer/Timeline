@@ -24,22 +24,34 @@ export const getDateHistoryFirstPeriod = (state: RootState) =>
 export const getTemporaryPeriod = (state: RootState) => {
   return [
     {
-      period: `${state.dateHistory.historyDate?.first.temporary_period_start} ${state.dateHistory.historyDate?.first.temporary_period_end}`,
+      period: [
+        state.dateHistory.historyDate?.first.temporary_period_start,
+        state.dateHistory.historyDate?.first.temporary_period_end,
+      ],
       start: state.dateHistory.historyDate?.first.temporary_period_start,
       end: state.dateHistory.historyDate?.first.temporary_period_end,
     },
     {
-      period: `${state.dateHistory.historyDate?.second.temporary_period_start} ${state.dateHistory.historyDate?.second.temporary_period_end}`,
+      period: [
+        state.dateHistory.historyDate?.second.temporary_period_start,
+        state.dateHistory.historyDate?.second.temporary_period_end,
+      ],
       start: state.dateHistory.historyDate?.second.temporary_period_start,
       end: state.dateHistory.historyDate?.second.temporary_period_end,
     },
     {
-      period: `${state.dateHistory.historyDate?.third.temporary_period_start} ${state.dateHistory.historyDate?.third.temporary_period_end}`,
+      period: [
+        state.dateHistory.historyDate?.third.temporary_period_start,
+        state.dateHistory.historyDate?.third.temporary_period_end,
+      ],
       start: state.dateHistory.historyDate?.third.temporary_period_start,
       end: state.dateHistory.historyDate?.third.temporary_period_end,
     },
     {
-      period: `${state.dateHistory.historyDate?.fourth.temporary_period_start} ${state.dateHistory.historyDate?.fourth.temporary_period_end}`,
+      period: [
+        state.dateHistory.historyDate?.fourth.temporary_period_start,
+        state.dateHistory.historyDate?.fourth.temporary_period_end,
+      ],
       start: state.dateHistory.historyDate?.fourth.temporary_period_start,
       end: state.dateHistory.historyDate?.fourth.temporary_period_end,
     },

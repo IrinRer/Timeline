@@ -4,7 +4,6 @@ import { Navigation, Pagination, Controller } from 'swiper';
 import { addZero } from 'helpers/addZero';
 import { useAppSelector } from 'customHooks/redux/useAppSelector';
 import {
-
   getDateHistoryScience,
   getTemporaryPeriod,
 } from 'store/historyDate/selectors';
@@ -40,27 +39,22 @@ const Sliders = () => {
         }}
         pagination={{
           clickable: true,
-          // type: 'fraction',
+          type: 'fraction',
           el: `.${styles.pagination}`,
-          // formatFractionTotal: (index) => {
-          //   return addZero(index);
-          // },
-          // formatFractionCurrent: (index) => {
-          //   return addZero(index);
-          // },
-
-          renderBullet: (index, className) => {
-            // eslint-disable-next-line
-            return '<span class="' + className + '">' + (index + 1) + '</span>';
+          formatFractionTotal: (index) => {
+            return addZero(index);
+          },
+          formatFractionCurrent: (index) => {
+            return addZero(index);
           },
         }}
         slidesPerView={1}
         className={styles.swiper_one}
       >
-        <div className={styles.pagination} />
         {period.map((time) => (
           <SwiperSlide>
-            <p className={styles.p_into_swiper}>{time.period}</p>
+            <span className={styles.p_into_swiper_start}>{time.period[0]} </span>
+            <span className={styles.p_into_swiper_end}>{time.period[1]}</span>
             <Swiper
               modules={[Navigation, Controller, Pagination]}
               spaceBetween={100}
@@ -110,6 +104,7 @@ const Sliders = () => {
           </SwiperSlide>
         ))}
         <div className={styles.wrapper}>
+          <div className={styles.pagination} />
           <Button />
         </div>
       </Swiper>
