@@ -5,6 +5,7 @@ import { Provider } from 'react-redux';
 import App from './component/App';
 import reportWebVitals from './reportWebVitals';
 import { store } from './store';
+import "swiper/css/bundle";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

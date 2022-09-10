@@ -1,11 +1,15 @@
 @import 'styles/color.scss';
 @import 'styles/mixins.scss';
 
-.wrapper {
+.wrapper_main {
+  height: 80%;
   display: flex;
-  height: 40vh;
-  flex-direction: column;
-  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+.wrapper {
+  position: absolute;
+  top: 150px;
 }
 
 .swiper_one {
@@ -16,13 +20,6 @@
 }
 
 .swiper_two {
-  min-width: 0;
-  position: absolute;
-  left: 200px;
-  right: 200px;
-  bottom: 0;
-  padding: 20px;
-  padding-left: 80px;
   @include media-breakpoint-only(xs) {
     position: static;
   }
@@ -62,4 +59,28 @@
       transform: rotate(225deg);
     }
   }
+}
+
+.p_date {
+  color: $blue;
+  text-transform: uppercase;
+  font-weight: 400;
+  font-size: 1.5em;
+  line-height: 120%;
+}
+
+.p_text {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1em;
+
+  color: $font-color;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow-y: hidden;
+}
+
+.p_into_swiper {
+  margin-bottom: 35vh;
 }
