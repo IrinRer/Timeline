@@ -1,7 +1,13 @@
 import { RootState } from 'store';
 
-export const getDateHistory = (state: RootState) =>
-  state.dateHistory.historyDate;
+export const getDateHistory = (state: RootState) => {
+  return [
+    state.dateHistory.historyDate?.first.science,
+    state.dateHistory.historyDate?.second.science,
+    state.dateHistory.historyDate?.third.science,
+    state.dateHistory.historyDate?.fourth.science,
+  ];
+};
 
 export const getDateHistoryFirstPeriod = (state: RootState) =>
   state.dateHistory.historyDate?.first;

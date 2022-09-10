@@ -50,9 +50,9 @@ const Sliders = () => {
         slidesPerView={1}
         className={styles.swiper_one}
       >
-        {period.map((item) => (
+        {period.map((time) => (
           <SwiperSlide>
-            <p className={styles.p_into_swiper}>{item.period}</p>
+            <p className={styles.p_into_swiper}>{time.period}</p>
             <Swiper
               modules={[Navigation, Controller, Pagination]}
               spaceBetween={100}
@@ -77,12 +77,27 @@ const Sliders = () => {
                 },
               }}
             >
-              {data?.science.map((item) => (
-                <SwiperSlide key={item.time} className={styles.swiper_slider}>
-                  <p className={styles.p_date}>{item.time}</p>
-                  <p className={styles.p_text}>{item.text}</p>
-                </SwiperSlide>
-              ))}
+              {data?.map((item) =>
+                item?.map((el) => {
+                  if (
+                    time.end &&
+                    time.start &&
+                    el.time <= time.end &&
+                    el.time >= time.start
+                  ) {
+                    return (
+                      <SwiperSlide
+                        key={el.time}
+                        className={styles.swiper_slider}
+                      >
+                        <p className={styles.p_date}>{el.time}</p>
+                        <p className={styles.p_text}>{el.text}</p>
+                      </SwiperSlide>
+                    );
+                  }
+                  return null;
+                }),
+              )}
             </Swiper>
           </SwiperSlide>
         ))}
@@ -96,35 +111,3 @@ const Sliders = () => {
 };
 
 export default Sliders;
-
-//   {/* <Swiper
-//     modules={[Navigation, Controller, Pagination]}
-//     spaceBetween={50}
-//     onSwiper={(swiper) => {
-//       swiper2Ref.current = swiper;
-//     }}
-//     slidesPerView={2}
-//     navigation
-//     className={styles.swiper_two}
-//     breakpoints={{
-//       320: {
-//         slidesPerView: 2,
-//         pagination: {
-//           clickable: true,
-//         },
-//       },
-//       480: {
-//         slidesPerView: 1,
-//       },
-//       992: {
-//         slidesPerView: 3,
-//       },
-//     }}
-//   >
-//     {data?.science.map((item) => (
-//       <SwiperSlide key={item.time} className={styles.swiper_slider}>
-//         <p className={styles.p_date}>{item.time}</p>
-//         <p className={styles.p_text}>{item.text}</p>
-//       </SwiperSlide>
-//     ))}
-//   </Swiper> */}
