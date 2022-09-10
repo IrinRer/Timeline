@@ -3,7 +3,10 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Controller } from 'swiper';
 import { addZero } from 'helpers/addZero';
 import { useAppSelector } from 'customHooks/redux/useAppSelector';
-import { getDateHistoryFirstPeriod } from 'store/historyDate/selectors';
+import {
+  getDateHistory,
+  getTemporaryPeriod,
+} from 'store/historyDate/selectors';
 import 'swiper/css';
 import 'swiper/scss/navigation';
 import 'swiper/css/pagination';
@@ -15,7 +18,8 @@ const Sliders = () => {
   const swiper1Ref = React.useRef<any>(null);
   const swiper2Ref = React.useRef<any>(null);
 
-  const data = useAppSelector(getDateHistoryFirstPeriod);
+  const data = useAppSelector(getDateHistory);
+  const period = useAppSelector(getTemporaryPeriod);
 
   React.useLayoutEffect(() => {
     if (swiper1Ref.current && swiper2Ref.current) {
@@ -46,43 +50,42 @@ const Sliders = () => {
         slidesPerView={1}
         className={styles.swiper_one}
       >
-        <SwiperSlide>
-         <p className={styles.p_into_swiper}> 2007-2011</p>
-          <Swiper
-            modules={[Navigation, Controller, Pagination]}
-            spaceBetween={100}
-            onSwiper={(swiper) => {
-              swiper2Ref.current = swiper;
-            }}
-            slidesPerView={2}
-            navigation
-            className={styles.swiper_two}
-            breakpoints={{
-              320: {
-                slidesPerView: 2,
-                pagination: {
-                  clickable: true,
+        {period.map((item) => (
+          <SwiperSlide>
+            <p className={styles.p_into_swiper}>{item.period}</p>
+            <Swiper
+              modules={[Navigation, Controller, Pagination]}
+              spaceBetween={100}
+              onSwiper={(swiper) => {
+                swiper2Ref.current = swiper;
+              }}
+              slidesPerView={2}
+              navigation
+              className={styles.swiper_two}
+              breakpoints={{
+                320: {
+                  slidesPerView: 2,
+                  pagination: {
+                    clickable: true,
+                  },
                 },
-              },
-              480: {
-                slidesPerView: 1,
-              },
-              992: {
-                slidesPerView: 3,
-              },
-            }}
-          >
-            {data?.science.map((item) => (
-              <SwiperSlide key={item.time} className={styles.swiper_slider}>
-                <p className={styles.p_date}>{item.time}</p>
-                <p className={styles.p_text}>{item.text}</p>
-              </SwiperSlide>
-            ))}
-          </Swiper>
-        </SwiperSlide>
-        <SwiperSlide>2011 2015</SwiperSlide>
-        <SwiperSlide>2016 2022</SwiperSlide>
-        <SwiperSlide>2022 2022</SwiperSlide>
+                480: {
+                  slidesPerView: 1,
+                },
+                992: {
+                  slidesPerView: 3,
+                },
+              }}
+            >
+              {data?.science.map((item) => (
+                <SwiperSlide key={item.time} className={styles.swiper_slider}>
+                  <p className={styles.p_date}>{item.time}</p>
+                  <p className={styles.p_text}>{item.text}</p>
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          </SwiperSlide>
+        ))}
         <div className={styles.wrapper}>
           <div className="my_custom_pagination_div" />
           <Button />
