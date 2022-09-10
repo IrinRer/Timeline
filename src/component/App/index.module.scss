@@ -30,6 +30,7 @@
   align-content: center;
   justify-content: center;
   overflow: auto;
+  z-index: 5;
   @include media-breakpoint-only(xs) {
    display: none;
   }

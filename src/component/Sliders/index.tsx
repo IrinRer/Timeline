@@ -4,7 +4,8 @@ import { Navigation, Pagination, Controller } from 'swiper';
 import { addZero } from 'helpers/addZero';
 import { useAppSelector } from 'customHooks/redux/useAppSelector';
 import {
-  getDateHistory,
+
+  getDateHistoryScience,
   getTemporaryPeriod,
 } from 'store/historyDate/selectors';
 import 'swiper/css';
@@ -17,8 +18,9 @@ import Button from './Button';
 const Sliders = () => {
   const swiper1Ref = React.useRef<any>(null);
   const swiper2Ref = React.useRef<any>(null);
+  const spanRef = React.useRef<any>();
 
-  const data = useAppSelector(getDateHistory);
+  const data = useAppSelector(getDateHistoryScience);
   const period = useAppSelector(getTemporaryPeriod);
 
   React.useLayoutEffect(() => {
@@ -38,18 +40,24 @@ const Sliders = () => {
         }}
         pagination={{
           clickable: true,
-          type: 'fraction',
-          el: '.my_custom_pagination_div',
-          formatFractionTotal: (index) => {
-            return addZero(index);
-          },
-          formatFractionCurrent: (index) => {
-            return addZero(index);
+          // type: 'fraction',
+          el: `.${styles.pagination}`,
+          // formatFractionTotal: (index) => {
+          //   return addZero(index);
+          // },
+          // formatFractionCurrent: (index) => {
+          //   return addZero(index);
+          // },
+
+          renderBullet: (index, className) => {
+            // eslint-disable-next-line
+            return '<span class="' + className + '">' + (index + 1) + '</span>';
           },
         }}
         slidesPerView={1}
         className={styles.swiper_one}
       >
+        <div className={styles.pagination} />
         {period.map((time) => (
           <SwiperSlide>
             <p className={styles.p_into_swiper}>{time.period}</p>
@@ -102,7 +110,6 @@ const Sliders = () => {
           </SwiperSlide>
         ))}
         <div className={styles.wrapper}>
-          <div className="my_custom_pagination_div" />
           <Button />
         </div>
       </Swiper>

@@ -1,11 +1,20 @@
 import { RootState } from 'store';
 
-export const getDateHistory = (state: RootState) => {
+export const getDateHistoryScience = (state: RootState) => {
   return [
     state.dateHistory.historyDate?.first.science,
     state.dateHistory.historyDate?.second.science,
     state.dateHistory.historyDate?.third.science,
     state.dateHistory.historyDate?.fourth.science,
+  ];
+};
+
+export const getDateHistoryMusic = (state: RootState) => {
+  return [
+    state.dateHistory.historyDate?.first.music,
+    state.dateHistory.historyDate?.second.music,
+    state.dateHistory.historyDate?.third.music,
+    state.dateHistory.historyDate?.fourth.music,
   ];
 };
 
