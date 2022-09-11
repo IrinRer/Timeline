@@ -1,13 +1,16 @@
 import { BLUE_BLACK } from 'constants/common';
+import { useAppDispatch } from 'customHooks/redux/useAppDispatch';
 import gsap from 'gsap';
 import { TextPlugin } from 'gsap/TextPlugin';
 import React, { useRef } from 'react';
+import { setSection } from 'store/historyDate/slice';
 import styles from './index.module.scss';
 
 gsap.registerPlugin(TextPlugin);
 
 const Cicle = ({ children }) => {
   const boxRef = useRef<any>();
+  const dispatch = useAppDispatch();
 
   const onEnter = ({ currentTarget }) => {
     gsap.to(currentTarget, {
@@ -20,7 +23,7 @@ const Cicle = ({ children }) => {
   };
 
   const handlerClick = (e) => {
-    console.log(e.target.dataset.section)
+    dispatch(setSection(e.target.dataset.section));
   };
 
   const onLeave = ({ currentTarget }) => {

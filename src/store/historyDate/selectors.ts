@@ -18,6 +18,24 @@ export const getDateHistoryMusic = (state: RootState) => {
   ];
 };
 
+export const getDateHistoryMovie = (state: RootState) => {
+  return [
+    state.dateHistory.historyDate?.first.movie,
+    state.dateHistory.historyDate?.second.movie,
+    state.dateHistory.historyDate?.third.movie,
+    state.dateHistory.historyDate?.fourth.movie,
+  ];
+};
+
+export const getDateHistoryLiterature = (state: RootState) => {
+  return [
+    state.dateHistory.historyDate?.first.literature,
+    state.dateHistory.historyDate?.second.literature,
+    state.dateHistory.historyDate?.third.literature,
+    state.dateHistory.historyDate?.fourth.literature,
+  ];
+};
+
 export const getTemporaryPeriod = (state: RootState) => {
   return [
     {
