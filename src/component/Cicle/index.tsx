@@ -1,12 +1,12 @@
 import { BLUE_BLACK } from 'constants/common';
 import gsap from 'gsap';
 import { TextPlugin } from 'gsap/TextPlugin';
-import React, { useRef, useEffect } from 'react';
+import React, { useRef } from 'react';
 import styles from './index.module.scss';
 
 gsap.registerPlugin(TextPlugin);
 
-const Cicle = () => {
+const Cicle = ({ children }) => {
   const boxRef = useRef<any>();
 
   const onEnter = ({ currentTarget }) => {
@@ -35,31 +35,32 @@ const Cicle = () => {
   return (
     <div className={styles.wrapper}>
       <div className={styles.cicle} ref={boxRef}>
-        <div
-          className={styles.dot_science}
-          onMouseEnter={onEnter}
-          onMouseLeave={onLeave}
-          data-section="science"
-        />
-        <div
-          className={styles.dot_music}
-          onMouseEnter={onEnter}
-          onMouseLeave={onLeave}
-          data-section="music"
-        />
-        <div
-          className={styles.dot_movie}
-          onMouseEnter={onEnter}
-          onMouseLeave={onLeave}
-          data-section="movie"
-        />
-        <div
-          className={styles.dot_literature}
-          onMouseEnter={onEnter}
-          onMouseLeave={onLeave}
-          data-section="literature"
-        />
+        {children}
       </div>
+      <div
+        className={styles.dot_science}
+        onMouseEnter={onEnter}
+        onMouseLeave={onLeave}
+        data-section="science"
+      />
+      <div
+        className={styles.dot_music}
+        onMouseEnter={onEnter}
+        onMouseLeave={onLeave}
+        data-section="music"
+      />
+      <div
+        className={styles.dot_movie}
+        onMouseEnter={onEnter}
+        onMouseLeave={onLeave}
+        data-section="movie"
+      />
+      <div
+        className={styles.dot_literature}
+        onMouseEnter={onEnter}
+        onMouseLeave={onLeave}
+        data-section="literature"
+      />
     </div>
   );
 };

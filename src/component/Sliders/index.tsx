@@ -2,6 +2,7 @@ import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Controller } from 'swiper';
 import { addZero } from 'helpers/addZero';
+import Cicle from 'component/Cicle';
 import { useAppSelector } from 'customHooks/redux/useAppSelector';
 import {
   getDateHistoryScience,
@@ -53,8 +54,26 @@ const Sliders = () => {
       >
         {period.map((time) => (
           <SwiperSlide>
-            <span className={styles.p_into_swiper_start}>{time.period[0]} </span>
-            <span className={styles.p_into_swiper_end}>{time.period[1]}</span>
+            {/* <div className={styles.wrapper_span}>
+              <div className={styles.wrapper_cicle}>
+                <span className={styles.p_into_swiper_start}>
+                  {time.period[0]}{' '}
+                </span>
+                <span className={styles.p_into_swiper_end}>
+                  {time.period[1]}
+                </span>
+              </div> */}
+            <Cicle>
+              <div className={styles.wrapper_span}>
+                <span className={styles.p_into_swiper_start}> 
+                  {time.period[0]}
+                </span>
+                <span className={styles.p_into_swiper_end}>
+                  {time.period[1]}
+                </span>
+              </div>
+            </Cicle>
+            {/* </div> */}
             <Swiper
               modules={[Navigation, Controller, Pagination]}
               spaceBetween={100}

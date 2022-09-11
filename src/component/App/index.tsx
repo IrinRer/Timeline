@@ -24,9 +24,9 @@ const App = () => {
       <VerticalLine />
       <div className={styles.wrapper}>
         <TextHistoricalDate />
-        <div className={styles.wrapper_cicle}>
+        {/* <div className={styles.wrapper_cicle}>
           <Cicle />
-        </div>
+        </div> */}
         {windowSize.width > MOBILE_SIZE ? <Sliders /> : <SlidersMobile />}
       </div>
       {/* <HorizontalLine /> */}

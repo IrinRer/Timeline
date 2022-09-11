@@ -2,16 +2,25 @@
 @import 'styles/mixins.scss';
 
 .wrapper {
-  margin-top: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5px;
+
   @include media-breakpoint-only(xs) {
     display: none;
   }
   .cicle {
     width: 400px;
     height: 400px;
+    gap: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     border-radius: 50%;
     border: 1px solid rgba($line, 0.2);
     position: relative;
+    white-space: nowrap;
   }
 }
 
@@ -20,8 +29,8 @@
   height: 6px;
   border-radius: 50%;
   position: relative;
-  top: 50px;
-  left: 61px;
+  top: -155px;
+  left: -78px;
   cursor: pointer;
   background-color: $line;
 
@@ -39,8 +48,8 @@
   background-color: $line;
   border-radius: 50%;
   position: relative;
-  top: 50px;
-  left: 338px;
+  top: -197px;
+  left: -197px;
   cursor: pointer;
 
   &:hover {
@@ -57,8 +66,8 @@
   background-color: $line;
   border-radius: 50%;
   position: relative;
-  top: -15px;
-  left: 204px;
+  top: -150px;
+  left: -345px;
   cursor: pointer;
 
   &:hover {
@@ -75,8 +84,8 @@
   background-color: $line;
   border-radius: 50%;
   position: relative;
-  top: 376px;
-  left: 204px;
+  top: 200px;
+  left: -210px;
   cursor: pointer;
 
   &:hover {
