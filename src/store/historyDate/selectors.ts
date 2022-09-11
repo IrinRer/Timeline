@@ -18,9 +18,6 @@ export const getDateHistoryMusic = (state: RootState) => {
   ];
 };
 
-export const getDateHistoryFirstPeriod = (state: RootState) =>
-  state.dateHistory.historyDate?.first;
-
 export const getTemporaryPeriod = (state: RootState) => {
   return [
     {
@@ -58,11 +55,4 @@ export const getTemporaryPeriod = (state: RootState) => {
   ];
 };
 
-export const getDateHistorySecondPeriod = (state: RootState) =>
-  state.dateHistory.historyDate?.second;
-
-export const getDateHistoryThirdPeriod = (state: RootState) =>
-  state.dateHistory.historyDate?.third;
-
-export const getDateHistoryFourthPeriod = (state: RootState) =>
-  state.dateHistory.historyDate?.fourth;
+export const getSection = (state: RootState) => state.dateHistory.section;

@@ -19,8 +19,8 @@ const Cicle = ({ children }) => {
     });
   };
 
-  const handlerClick = () => {
-    gsap.to(boxRef.current, { rotation: '+=30' });
+  const handlerClick = (e) => {
+    console.log(e.target.dataset.section)
   };
 
   const onLeave = ({ currentTarget }) => {
@@ -40,6 +40,7 @@ const Cicle = ({ children }) => {
       <div
         className={styles.dot_science}
         onMouseEnter={onEnter}
+        onClick={handlerClick}
         onMouseLeave={onLeave}
         data-section="science"
       />
@@ -47,18 +48,21 @@ const Cicle = ({ children }) => {
         className={styles.dot_music}
         onMouseEnter={onEnter}
         onMouseLeave={onLeave}
+        onClick={handlerClick}
         data-section="music"
       />
       <div
         className={styles.dot_movie}
         onMouseEnter={onEnter}
         onMouseLeave={onLeave}
+        onClick={handlerClick}
         data-section="movie"
       />
       <div
         className={styles.dot_literature}
         onMouseEnter={onEnter}
         onMouseLeave={onLeave}
+        onClick={handlerClick}
         data-section="literature"
       />
     </div>

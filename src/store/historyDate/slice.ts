@@ -5,6 +5,7 @@ import { fetchHistoryDateAction } from './thunk';
 
 const initialState: IHitoryDateSlice = {
   historyDate: null,
+  section: '',
   loading: false,
   error: null
 };
@@ -12,7 +13,11 @@ const initialState: IHitoryDateSlice = {
 export const dateHistorySlice = createSlice({
   name: HISTORY_DATE_SLICE_ALIAS,
   initialState,
-  reducers: {},
+  reducers: {
+    setSection: (store, action) => {
+      store.section = action.payload;
+    }
+  },
   extraReducers: {
     [fetchHistoryDateAction.pending.type]: (state) => {
       state.loading = true;
@@ -36,4 +41,5 @@ export const dateHistorySlice = createSlice({
   },
 });
 
+export const { setSection } = dateHistorySlice.actions;
 export default dateHistorySlice.reducer;

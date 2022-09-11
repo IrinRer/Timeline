@@ -9,6 +9,7 @@ export interface IHistoryDatePeriod {
 
 export interface IHitoryDateSlice {
   historyDate: IHistoryDateItem | null;
+  section: string;
   loading: boolean;
   error: AxiosError | null;
 }
