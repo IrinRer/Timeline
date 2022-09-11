@@ -1,10 +1,11 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { AxiosError } from 'axios';
 import { HISTORY_DATE_SLICE_ALIAS, IHitoryDateSlice } from './types';
-import { fetchHistoryDateAction } from './thunk';
+import { fetchHistoryDateAction, fetchSectionAction } from './thunk';
 
 const initialState: IHitoryDateSlice = {
   historyDate: null,
+  sections: [],
   section: 'science',
   loading: false,
   error: null
@@ -30,6 +31,14 @@ export const dateHistorySlice = createSlice({
       state.historyDate = payload;
       state.loading = false;
     },
+
+    [fetchSectionAction.fulfilled.type]: (
+      state,
+      { payload }: PayloadAction<any>,
+    ) => {
+      state.sections = payload;
+    },
+
     [fetchHistoryDateAction.rejected.type]: (
       state,
       { payload }: PayloadAction<AxiosError>,

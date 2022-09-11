@@ -1,0 +1,92 @@
+@import 'styles/color.scss';
+@import 'styles/mixins.scss';
+
+.science {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  position: relative;
+  top: -130px;
+  left: -53px;
+  cursor: pointer;
+//   transition: width 0.8s ease, height 0.8s ease;
+  background-color: $iris !important;
+
+  &:hover {
+    &::after {
+      content: attr(data-section);
+      color: $font-color;
+    }
+  }
+}
+
+.music {
+  width: 6px;
+  height: 6px;
+  background-color: $iris !important;
+  border-radius: 50%;
+  position: relative;
+  top: -197px;
+  left: -210px;
+  cursor: pointer;
+//   transition: width 0.8s ease, height 0.8s ease;
+
+  &:hover {
+    &::after {
+      content: attr(data-section);
+      color: $font-color;
+    }
+  }
+}
+
+.movie {
+  width: 6px;
+  height: 6px;
+  background-color: $iris !important;
+  border-radius: 50%;
+  position: relative;
+  top: -130px;
+  left: -360px;
+//   transition: width 0.8s ease, height 0.8s ease;
+  cursor: pointer;
+
+  &:hover {
+    &::after {
+      content: attr(data-section);
+      color: $font-color;
+    }
+  }
+}
+
+.literature {
+  width: 6px;
+  height: 6px;
+  background-color: $iris !important;
+  border-radius: 50%;
+  position: relative;
+  top: 200px;
+  left: -203px;
+//   transition: width 0.8s ease, height 0.8s ease;
+  cursor: pointer;
+
+  &:hover {
+    &::after {
+      content: attr(data-section);
+      color: $font-color;
+    }
+  }
+}
+
+.active_dot {
+    transform: scale(2, 2);
+  background-color: $pink !important;
+  border: 0.5px solid $line;
+
+  &::after {
+    content: attr(data-section);
+    color: $font-color;
+    font-size: 20px;
+    position: absolute;
+    top: 5px;
+  }
+}

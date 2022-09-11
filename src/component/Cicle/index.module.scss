@@ -5,11 +5,13 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 5px;
+  margin-top: 10px;
+  margin-bottom: 150px;
 
   @include media-breakpoint-only(xs) {
     display: none;
   }
+  
   .cicle {
     width: 400px;
     height: 400px;
@@ -22,82 +24,4 @@
     position: relative;
     white-space: nowrap;
   }
-}
-
-.dot_science {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  position: relative;
-  top: -155px;
-  left: -78px;
-  cursor: pointer;
-  background-color: $line;
-
-  &:hover {
-    &::after {
-      content: 'Наука';
-      color: $font-color;
-    }
-  }
-}
-
-.dot_music {
-  width: 6px;
-  height: 6px;
-  background-color: $line;
-  border-radius: 50%;
-  position: relative;
-  top: -197px;
-  left: -197px;
-  cursor: pointer;
-
-  &:hover {
-    &::after {
-      content: 'Музыка';
-      color: $font-color;
-    }
-  }
-}
-
-.dot_movie {
-  width: 6px;
-  height: 6px;
-  background-color: $line;
-  border-radius: 50%;
-  position: relative;
-  top: -150px;
-  left: -345px;
-  cursor: pointer;
-
-  &:hover {
-    &::after {
-      content: 'Кино';
-      color: $font-color;
-    }
-  }
-}
-
-.dot_literature {
-  width: 6px;
-  height: 6px;
-  background-color: $line;
-  border-radius: 50%;
-  position: relative;
-  top: 200px;
-  left: -210px;
-  cursor: pointer;
-
-  &:hover {
-    &::after {
-      content: 'Литература';
-      color: $font-color;
-    }
-  }
-}
-
-.span {
-  color: $font-color;
-  opacity: 1;
-  z-index: 5;
 }

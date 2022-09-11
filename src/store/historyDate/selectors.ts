@@ -74,3 +74,4 @@ export const getTemporaryPeriod = (state: RootState) => {
 };
 
 export const getSection = (state: RootState) => state.dateHistory.section;
+export const getSections = (state: RootState) => state.dateHistory.sections;

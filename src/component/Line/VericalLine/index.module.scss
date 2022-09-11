@@ -6,11 +6,11 @@
   justify-content: space-between;
   grid-area: 1 / 1;
   height: 100%;
-  padding: 0px 160px 0px 160px;
+  padding: 0px 10vw 0px 10vw;
   @include media-breakpoint-only(xs) {
     display: none;
   }
-  
+
   .line_vertical {
     width: 1px;
     background-color: $line;

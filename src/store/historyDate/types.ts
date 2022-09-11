@@ -1,6 +1,7 @@
 import { AxiosError } from 'axios';
 
 export const HISTORY_DATE_SLICE_ALIAS = 'historyDate';
+export const SECTION_SLICE_ALIAS = 'section';
 
 export interface IHistoryDatePeriod {
   time: number;
@@ -10,6 +11,7 @@ export interface IHistoryDatePeriod {
 export interface IHitoryDateSlice {
   historyDate: IHistoryDateItem | null;
   section: string;
+  sections: any;
   loading: boolean;
   error: AxiosError | null;
 }
