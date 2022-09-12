@@ -9,7 +9,6 @@
   top: -130px;
   left: -53px;
   cursor: pointer;
-//   transition: width 0.8s ease, height 0.8s ease;
   background-color: $iris !important;
 
   &:hover {
@@ -29,7 +28,6 @@
   top: -197px;
   left: -210px;
   cursor: pointer;
-//   transition: width 0.8s ease, height 0.8s ease;
 
   &:hover {
     &::after {
@@ -47,7 +45,6 @@
   position: relative;
   top: -130px;
   left: -360px;
-//   transition: width 0.8s ease, height 0.8s ease;
   cursor: pointer;
 
   &:hover {
@@ -66,7 +63,6 @@
   position: relative;
   top: 200px;
   left: -203px;
-//   transition: width 0.8s ease, height 0.8s ease;
   cursor: pointer;
 
   &:hover {
@@ -78,7 +74,7 @@
 }
 
 .active_dot {
-    transform: scale(2, 2);
+  transform: scale(2, 2);
   background-color: $pink !important;
   border: 0.5px solid $line;
 

@@ -3,6 +3,10 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Controller } from 'swiper';
 import 'swiper/css';
 import { addZero } from 'helpers/addZero';
+import HorizontalLine from 'component/Line/HorizontalLine';
+import { useDefuneSection } from 'customHooks/useDefuneSection';
+import { useAppSelector } from 'customHooks/redux/useAppSelector';
+import { getTemporaryPeriod } from 'store/historyDate/selectors';
 import Button from 'component/Sliders/Button';
 import 'swiper/scss/navigation';
 import 'swiper/css/pagination';
@@ -13,10 +17,12 @@ const SlidersMobile = () => {
   const swiper1Ref = React.useRef<any>(null);
   const swiper2Ref = React.useRef<any>(null);
 
+  const data = useDefuneSection();
+  const period = useAppSelector(getTemporaryPeriod);
+
   React.useLayoutEffect(() => {
     if (swiper1Ref.current && swiper2Ref.current) {
       swiper1Ref.current.controller.control = swiper2Ref.current;
-      // swiper2Ref.current.controller.control = swiper1Ref.current;
     }
   }, []);
 
@@ -28,11 +34,10 @@ const SlidersMobile = () => {
         onSwiper={(swiper) => {
           swiper1Ref.current = swiper;
         }}
-        slidesPerView={1}
         pagination={{
           clickable: true,
           type: 'fraction',
-          el: '.my_custom_pagination_div_fragment',
+          el: '.my_custom_pagination_fragment',
           formatFractionTotal: (index) => {
             return addZero(index);
           },
@@ -40,37 +45,63 @@ const SlidersMobile = () => {
             return addZero(index);
           },
         }}
+        slidesPerView={1}
         className={styles.swiper_one}
       >
-        <SwiperSlide>Slide 1</SwiperSlide>
-        <SwiperSlide>Slide 2</SwiperSlide>
-        <SwiperSlide>Slide 3</SwiperSlide>
-        <SwiperSlide>Slide 4</SwiperSlide>
+        {period.map((time) => (
+          <SwiperSlide>
+            <div className={styles.wrapper_span}>
+              <span className={styles.p_into_swiper_start}>
+                {time.period[0]}
+              </span>
+              <span className={styles.p_into_swiper_end}>{time.period[1]}</span>
+            </div>
+            <HorizontalLine />
+            <Swiper
+              modules={[Controller, Pagination]}
+              spaceBetween={50}
+              onSwiper={(swiper) => {
+                swiper2Ref.current = swiper;
+              }}
+              slidesPerView={2}
+              className={styles.swiper_two}
+              pagination={{
+                clickable: true,
+                type: 'bullets',
+                el: `.${styles.my_custom_pagination_div}`,
+              }}
+            >
+              {data?.map((item) =>
+                item?.map((el) => {
+                  if (
+                    time.end &&
+                    time.start &&
+                    el.time <= time.end &&
+                    el.time >= time.start
+                  ) {
+                    return (
+                      <SwiperSlide
+                        key={el.time}
+                        className={styles.swiper_slider}
+                      >
+                        <div className={styles.wrapper_text_time}>
+                          <p className={styles.p_date}>{el.time}</p>
+                          <p className={styles.p_text}>{el.text}</p>
+                        </div>
+                      </SwiperSlide>
+                    );
+                  }
+                  return null;
+                }),
+              )}
+            </Swiper>
+          </SwiperSlide>
+        ))}
+        <div className={styles.my_custom_pagination_div} />
         <div className={styles.wrapper_btn}>
-          <div className='my_custom_pagination_div_fragment'/>
+          <div className="my_custom_pagination_fragment" />
           <Button />
         </div>
-      </Swiper>
-
-      <Swiper
-        modules={[Controller, Pagination]}
-        spaceBetween={50}
-        onSwiper={(swiper) => {
-          swiper2Ref.current = swiper;
-        }}
-        slidesPerView={2}
-        className={styles.swiper_two}
-        pagination={{
-          clickable: true,
-          type: 'bullets',
-          el: `.${styles.my_custom_pagination_div}`,
-        }}
-      >
-        <SwiperSlide>Slide 1</SwiperSlide>
-        <SwiperSlide>Slide 2</SwiperSlide>
-        <SwiperSlide>Slide 3</SwiperSlide>
-        <SwiperSlide>Slide 4</SwiperSlide>
-        <div className={styles.my_custom_pagination_div} />
       </Swiper>
     </main>
   );

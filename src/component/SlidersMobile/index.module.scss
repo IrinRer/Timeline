@@ -12,6 +12,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  margin-top: 30%;
 }
 
 .swiper_one {
@@ -25,14 +26,61 @@
 .swiper_two {
   min-width: 0;
   width: 100%;
+}
 
-  .my_custom_pagination_div {
-    position: fixed;
-    left: 200px;
-    bottom: 30px;
-  }
+.my_custom_pagination_div {
+ position: fixed;
+ bottom: 30px !important;
+ left: 200px !important;
 }
 
 :global(.swiper-pagination-bullet-active) {
   background: $line;
+}
+
+.wrapper_span {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+
+  .p_into_swiper_start,
+  .p_into_swiper_end {
+    font-weight: 700;
+    font-size: 20vw;
+    width: 100%;
+  }
+
+  .p_into_swiper_start {
+    color: $iris;
+  }
+
+  .p_into_swiper_end {
+    color: $pink;
+  }
+}
+
+.wrapper_text_time {
+  .p_date {
+    color: $blue;
+    text-transform: uppercase;
+    font-weight: 400;
+    font-size: 1.5em;
+    text-align: left;
+    line-height: 120%;
+  }
+
+  .p_text {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1em;
+    margin: 0px 0px;
+    text-align: left;
+    width: 166px;
+
+    color: $font-color;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow-y: hidden;
+  }
 }

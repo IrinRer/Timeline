@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React from 'react';
 import classnames from 'classnames';
 import gsap from 'gsap';
 import { BLUE_BLACK } from 'constants/common';

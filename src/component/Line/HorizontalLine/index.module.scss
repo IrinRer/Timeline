@@ -2,17 +2,31 @@
 @import 'styles/mixins.scss';
 
 .wrapper_line_horizontal {
-  padding: 100px 160px 100px 160px;
   align-self: center;
   grid-area: 1 / 1;
   @include media-breakpoint-only(xs) {
     width: 100%;
-    padding: 0px 20px 0px 20px;
+    padding: 0px 10px 0px 0px;
   }
 
   .line_horizontal {
-    height: 1px;
+    height: 2px;
     background-color: $line;
-    opacity: 0.1;
+    opacity: 0.2;
+    width: 100%;
   }
+}
+
+.btn {
+  background: transparent;
+  border: none;
+  color: $font-color;
+  width: 400;
+  font-size: 1em;
+  margin-top: 60px;
+}
+
+.btn_active {
+  width: 800;
+  font-size: 1.5em;
 }

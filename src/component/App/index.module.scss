@@ -10,6 +10,11 @@
   grid-template-columns: repeat(2, 100vw);
   height: 100%;
   padding: 0px 40px;
+
+  @include media-breakpoint-only(xs) {
+    width: 100%;
+    padding: 0px;
+  }
 }
 
 .wrapper {
