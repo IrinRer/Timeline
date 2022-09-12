@@ -1,70 +1,53 @@
-# Getting Started with Create React App
+## Описание
+Проект содержит информацию о временных отрезках, в каждом из которых существует несколько событий. 
+При переключении временных отрезков изменяются соответствующие числа и под ними показывается новый слайдер, который содержит подробную информацию по ключевым событиям на активном временном отрезке.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Тестовое задание для компании Only (https://onlydigital.ru/). 
 
-## Available Scripts
+## Технологии
+1. React
+2. TypeScript
+3. Redux (thunk, redux-toolkit)
+4. JSON-server
+5. CSS modules
+6. GSAP
+7. Swiper
+8. Axious
 
-In the project directory, you can run:
+## Что было сделано
+1. Реализована конструкция slider in slider. 
 
-### `npm start`
+Есть главный слайдер, который отражает временной промежуток и есть вторичный слайдер, который расположен внутри главного, отрабражающий события на данном промежутке. Этим я добилась взаимосвязи между timeline и событиями. Таким образом можно перемещаться внутри главного слайдера по временным промежуткам, а внутри вторичного по событиям.   
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+2. Можно фильтровать события не только по датам, но и по областям, к которым должны относиться события.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Всего есть 4 секции (Наука, Литература, Музыка, Кино). Например, если выбрать Науку, то будут отображаться события на данном временном промежутке, которые были связанно с данной областью.
 
-### `npm test`
+3. Анимация созданная с помощью gsap воспроизводится при переключении между временными промежутками и при наведении на секции (круги).
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+4. JSON-server использовался для создания сервера, к которому будут делаться запросы. Запросы делала с помощью middleware - thunk. Store создавала с помощью Redux-toolkit.
 
-### `npm run build`
+5. Базу данных сформирована в соответствие с потребностями. 
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Поле section содержит массив из строк, которые представляют собой секции (Наука, Литература, Музыка, Кино). Данное поле было создана для того, чтобы получать информацию о том, какие секции есть, соответственно, если секции добавятся, то это легко обновится в интерфейсе.
+Поле data разделено на периоды: first, second, third, fourth. Каждый из них в свою очередь содержат поле в соответствии с уже названными секциями, которые есть в проекте. Благодаря такому устройству можно легко получить информацию о каждом периоде в соответствии с областью, которая была выбрана. 
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+6. Сделан адаптив под разные устройства.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Адаптив сделан с помощью mixin, который принимает переменные и в зависимости от значения возвращает нужный @media. 
+Мобилная версия: Хук useWindowSize определяет ширину viewport и в соотствии с этим рендерит нужный компонент - slider for mobile.
 
-### `npm run eject`
+## Как запустить 
+1. Клонируйте репозиторий
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+``git clone https://github.com/IrinRer/Timeline.git``
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+2. Устанавливаете зависимости
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+``npm i``
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+3. Запускаете проект 
 
-## Learn More
+``npm run dev``
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Данная команда запустит также JSON-server. 
