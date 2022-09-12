@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef, useLayoutEffect } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Controller } from 'swiper';
 import { addZero } from 'helpers/addZero';
@@ -14,20 +14,21 @@ import styles from './index.module.scss';
 import Button from './Button';
 
 const Sliders = () => {
-  const swiper1Ref = React.useRef<any>(null);
-  const swiper2Ref = React.useRef<any>(null);
+  const swiper1Ref = useRef<any>(null);
+  const swiper2Ref = useRef<any>(null);
+  const mainRef = useRef<any>(null);
 
   const data = useDefuneSection();
   const period = useAppSelector(getTemporaryPeriod);
 
-  React.useLayoutEffect(() => {
+  useLayoutEffect(() => {
     if (swiper1Ref.current && swiper2Ref.current) {
       swiper1Ref.current.controller.control = swiper2Ref.current;
     }
   }, []);
 
   return (
-    <main className={styles.wrapper_main}>
+    <main className={styles.wrapper_main} ref={mainRef}>
       <Swiper
         modules={[Navigation, Pagination, Controller]}
         spaceBetween={50}
@@ -110,7 +111,7 @@ const Sliders = () => {
         ))}
         <div className={styles.wrapper}>
           <div className={styles.pagination} />
-          <Button />
+          <Button mainRef={mainRef.current} />
         </div>
       </Swiper>
     </main>

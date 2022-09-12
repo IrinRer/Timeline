@@ -3,11 +3,15 @@ import SlideNextButton from './ButtonNext';
 import SlidePrevButton from './ButtonPrev';
 import styles from './index.module.scss';
 
-const Button = () => {
+interface IProps {
+  mainRef: string;
+}
+
+const Button: React.FC<IProps> = ({ mainRef }) => {
   return (
     <div className={styles.wrapper_btn}>
-      <SlidePrevButton />
-      <SlideNextButton />
+      <SlidePrevButton mainRef={mainRef} />
+      <SlideNextButton mainRef={mainRef} />
     </div>
   );
 };

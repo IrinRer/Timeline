@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef, useLayoutEffect } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Controller } from 'swiper';
 import 'swiper/css';
@@ -14,13 +14,14 @@ import 'swiper/css/effect-fade';
 import styles from './index.module.scss';
 
 const SlidersMobile = () => {
-  const swiper1Ref = React.useRef<any>(null);
-  const swiper2Ref = React.useRef<any>(null);
+  const swiper1Ref = useRef<any>(null);
+  const swiper2Ref = useRef<any>(null);
+  const mainRef = useRef<any>(null);
 
   const data = useDefuneSection();
   const period = useAppSelector(getTemporaryPeriod);
 
-  React.useLayoutEffect(() => {
+  useLayoutEffect(() => {
     if (swiper1Ref.current && swiper2Ref.current) {
       swiper1Ref.current.controller.control = swiper2Ref.current;
     }
@@ -100,7 +101,7 @@ const SlidersMobile = () => {
         <div className={styles.my_custom_pagination_div} />
         <div className={styles.wrapper_btn}>
           <div className="my_custom_pagination_fragment" />
-          <Button />
+          <Button mainRef={mainRef.current} />
         </div>
       </Swiper>
     </main>
