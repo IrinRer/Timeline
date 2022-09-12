@@ -40,7 +40,7 @@
 Мобилная версия: Хук useWindowSize определяет ширину viewport и в соотствии с этим рендерит нужный компонент - slider for mobile.
 
 ## Как запустить 
-1. Клонируйте репозиторий
+1. Клонируете репозиторий
 
 ``git clone https://github.com/IrinRer/Timeline.git``
 
