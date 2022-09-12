@@ -38,28 +38,32 @@ const Dots = () => {
 
   return (
     <>
-    {sections.map((item: string) => {
-         if (item === section) {
-            return (
-                <div data-section={item}  className={classnames(styles[item], {
-                    [styles.active_dot]: section === item
-                  })}/>
-            )
-          }
-        
-
+      {sections.map((item: string) => {
+        if (item === section) {
           return (
             <div
-              onMouseEnter={onEnter}
-              onClick={handlerClick}
-              onMouseLeave={onLeave}
+             key={item}
               data-section={item}
               className={classnames(styles[item], {
-                [styles.active_dot]: section === item
+                [styles.active_dot]: section === item,
               })}
             />
           );
-    })}
+        }
+
+        return (
+          <div
+            key={item}
+            onMouseEnter={onEnter}
+            onClick={handlerClick}
+            onMouseLeave={onLeave}
+            data-section={item}
+            className={classnames(styles[item], {
+              [styles.active_dot]: section === item,
+            })}
+          />
+        );
+      })}
     </>
   );
 };

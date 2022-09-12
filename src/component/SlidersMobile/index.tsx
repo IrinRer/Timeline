@@ -49,8 +49,8 @@ const SlidersMobile = () => {
         slidesPerView={1}
         className={styles.swiper_one}
       >
-        {period.map((time) => (
-          <SwiperSlide>
+        {period.map((time, index) => (
+          <SwiperSlide key={index}>
             <div className={styles.wrapper_span}>
               <span className={styles.p_into_swiper_start}>
                 {time.period[0]}

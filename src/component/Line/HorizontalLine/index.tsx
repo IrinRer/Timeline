@@ -22,6 +22,7 @@ const HorizontalLine = () => {
           return (
             <button
               type="button"
+              key={item}
               className={classnames(styles.btn, styles.btn_active)}
             >
               {item}
@@ -30,6 +31,7 @@ const HorizontalLine = () => {
         }
         return (
           <button
+            key={item}
             type="button"
             className={styles.btn}
             data-section={item}

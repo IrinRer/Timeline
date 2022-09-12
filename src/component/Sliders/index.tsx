@@ -49,8 +49,8 @@ const Sliders = () => {
         slidesPerView={1}
         className={styles.swiper_one}
       >
-        {period.map((time) => (
-          <SwiperSlide>
+        {period.map((time, index) => (
+          <SwiperSlide key={index}>
             <Cicle>
               <div className={styles.wrapper_span}>
                 <span className={styles.p_into_swiper_start}>
@@ -98,8 +98,10 @@ const Sliders = () => {
                         key={el.time}
                         className={styles.swiper_slider}
                       >
-                        <p className={styles.p_date}>{el.time}</p>
+                       <div className={styles.wrapper_text_time}>
+                       <p className={styles.p_date}>{el.time}</p>
                         <p className={styles.p_text}>{el.text}</p>
+                       </div>
                       </SwiperSlide>
                     );
                   }
