@@ -4,9 +4,7 @@ import { Navigation, Pagination, Controller } from 'swiper';
 import { addZero } from 'helpers/addZero';
 import Cicle from 'component/Cicle';
 import { useAppSelector } from 'customHooks/redux/useAppSelector';
-import {
-  getTemporaryPeriod,
-} from 'store/historyDate/selectors';
+import { getTemporaryPeriod } from 'store/historyDate/selectors';
 import { useDefuneSection } from 'customHooks/useDefuneSection';
 import 'swiper/css';
 import 'swiper/scss/navigation';

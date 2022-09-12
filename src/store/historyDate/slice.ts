@@ -1,6 +1,10 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { AxiosError } from 'axios';
-import { HISTORY_DATE_SLICE_ALIAS, IHitoryDateSlice } from './types';
+import {
+  HISTORY_DATE_SLICE_ALIAS,
+  IHistoryDateItem,
+  IHitoryDateSlice,
+} from './types';
 import { fetchHistoryDateAction, fetchSectionAction } from './thunk';
 
 const initialState: IHitoryDateSlice = {
@@ -8,7 +12,7 @@ const initialState: IHitoryDateSlice = {
   sections: [],
   section: 'science',
   loading: false,
-  error: null
+  error: null,
 };
 
 export const dateHistorySlice = createSlice({
@@ -17,7 +21,7 @@ export const dateHistorySlice = createSlice({
   reducers: {
     setSection: (store, action: PayloadAction<string>) => {
       store.section = action.payload;
-    }
+    },
   },
   extraReducers: {
     [fetchHistoryDateAction.pending.type]: (state) => {
@@ -26,7 +30,7 @@ export const dateHistorySlice = createSlice({
     },
     [fetchHistoryDateAction.fulfilled.type]: (
       state,
-      { payload }: PayloadAction<any>,
+      { payload }: PayloadAction<IHistoryDateItem>,
     ) => {
       state.historyDate = payload;
       state.loading = false;
@@ -34,7 +38,7 @@ export const dateHistorySlice = createSlice({
 
     [fetchSectionAction.fulfilled.type]: (
       state,
-      { payload }: PayloadAction<any>,
+      { payload }: PayloadAction<Array<string>>,
     ) => {
       state.sections = payload;
     },
@@ -43,9 +47,9 @@ export const dateHistorySlice = createSlice({
       state,
       { payload }: PayloadAction<AxiosError>,
     ) => {
-     state.historyDate = null;
-     state.loading = false;
-     state.error = payload
+      state.historyDate = null;
+      state.loading = false;
+      state.error = payload;
     },
   },
 });

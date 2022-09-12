@@ -1,6 +1,5 @@
 import React from 'react';
 import { useSwiper } from 'swiper/react';
-import gsap from 'gsap';
 import styles from './index.module.scss';
 
 const SlideNextButton = () => {
@@ -8,15 +7,10 @@ const SlideNextButton = () => {
 
   const handlerClick = () => {
     swiper.slideNext();
-    // gsap.to()
-  }
+  };
 
   return (
-    <button
-      className={styles.btn_next}
-      type="button"
-      onClick={handlerClick}
-    />
+    <button className={styles.btn_next} type="button" onClick={handlerClick} />
   );
 };
 

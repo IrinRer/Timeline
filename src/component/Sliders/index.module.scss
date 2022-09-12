@@ -23,12 +23,11 @@
 }
 
 .wrapper_span {
- display: flex;
- gap: 70px;
+  display: flex;
+  gap: 70px;
 }
 
 .swiper_two {
-
   @include media-breakpoint-only(xs) {
     position: static;
   }

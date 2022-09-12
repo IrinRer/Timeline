@@ -1,7 +1,7 @@
-import { useAppSelector } from 'customHooks/redux/useAppSelector';
 import React from 'react';
-import { getSection, getSections } from 'store/historyDate/selectors';
 import classnames from 'classnames';
+import { useAppSelector } from 'customHooks/redux/useAppSelector';
+import { getSection, getSections } from 'store/historyDate/selectors';
 import { useAppDispatch } from 'customHooks/redux/useAppDispatch';
 import { setSection } from 'store/historyDate/slice';
 import styles from './index.module.scss';
@@ -13,7 +13,7 @@ const HorizontalLine = () => {
 
   const handlerClick = (e) => {
     dispatch(setSection(e.target.dataset.section));
-  }
+  };
 
   return (
     <div className={styles.wrapper_line_horizontal}>
@@ -29,7 +29,12 @@ const HorizontalLine = () => {
           );
         }
         return (
-          <button type="button" className={styles.btn} data-section={item} onClick={handlerClick}>
+          <button
+            type="button"
+            className={styles.btn}
+            data-section={item}
+            onClick={handlerClick}
+          >
             {item}
           </button>
         );
